@@ -31,6 +31,16 @@ resource "aws_network_acl" "terraform_NACL" {
     from_port  = 1024
     to_port    = 65535
   }
+  # allow ingress ICMP ALL
+  ingress {
+    protocol   = -1
+    rule_no    = 150
+    action     = "allow"
+    cidr_block = var.destinationCIDRblock
+    from_port  = 0
+    to_port    = 0
+  }
+
   
   # allow egress port 22 
   egress {
@@ -60,6 +70,16 @@ resource "aws_network_acl" "terraform_NACL" {
     cidr_block = var.destinationCIDRblock
     from_port  = 1024
     to_port    = 65535
+  }
+
+   # allow ingress ICMP ALL
+  egress {
+    protocol   = -1
+    rule_no    = 150
+    action     = "allow"
+    cidr_block = var.destinationCIDRblock
+    from_port  = 0
+    to_port    = 0
   }
 tags = {
     Name = "terraform_NACL"

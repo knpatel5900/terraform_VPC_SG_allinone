@@ -16,6 +16,9 @@ variable "destinationCIDRblock" {
 variable "subnetCIDRblock_public" {
   default =  "192.168.1.0/24"
 }
+variable "subnetCIDRblock_private" {
+  default =  "192.168.2.0/24"
+}
 variable "mapPublicIP" {
   default = true
 }
