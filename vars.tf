@@ -25,6 +25,9 @@ variable "mapPublicIP" {
 variable "availabilityZone" {
   default = "us-east-1a"
 }
+variable "availabilityZone_private" {
+  default = "us-east-1b"
+}
 variable "ingressCIDRblock" {
     type = list
     default = [ "0.0.0.0/0" ]
